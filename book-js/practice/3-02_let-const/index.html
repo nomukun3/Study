@@ -27,6 +27,21 @@
 <p>JavaScript Samples</p>
 </div><!-- /.container -->
 </footer>
-<script src="script.js"></script>
+<script>
+'use strict';
+
+const answer = window.prompt('ヘルプを見ていますか？');
+if(answer === 'yes'){
+  window.alert('タップで障害物を避けます');
+}
+else if(answer === 'no'){
+  window.alert('ゲームを起動中...');
+}
+else{
+  window.alert('yesかnoでお答えください');
+}
+// answer = 'no';
+// console.log(answer);
+</script>
 </body>
 </html>
