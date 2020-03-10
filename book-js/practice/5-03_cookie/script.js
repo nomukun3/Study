@@ -19,6 +19,3 @@ else{
 document.getElementById('testbtn').onclick = function() {
   Cookies.remove('cookie-agree');
 };
-
-console.log('aaa');
-console.log('aab');
