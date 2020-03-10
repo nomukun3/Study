@@ -21,3 +21,4 @@ document.getElementById('testbtn').onclick = function() {
 };
 
 console.log('aaa');
+console.log('aab');
