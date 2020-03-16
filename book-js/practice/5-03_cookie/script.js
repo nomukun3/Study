@@ -1,5 +1,6 @@
 'use strict';
 
+
 const agree = Cookies.get('cookie-agree');
 const panel = document.getElementById('privacy-panel');
 
