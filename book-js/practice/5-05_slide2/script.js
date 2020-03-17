@@ -20,3 +20,5 @@ document.getElementById('prev').onclick = function() {
 document.getElementById('next').onclick = function() {
   changeImage(1);
 };
+
+console.log('らーめん');
