@@ -20,11 +20,3 @@ document.getElementById('prev').onclick = function() {
 document.getElementById('next').onclick = function() {
   changeImage(1);
 };
-
-function hello(naini) {
-  console.log('hello'+naini);
-}
-
-document.getElementById('next').onclick = function() {
-  hello('こんにちは');
-};
