@@ -11,6 +11,9 @@ img {
 
 /* 機能の実装に必要なcss */
 #nav {
+  position: fixed;
+  right: -270px;
+  top: 0;
   width: 270px;
   height: 100%;
 }
