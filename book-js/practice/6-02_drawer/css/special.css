@@ -17,6 +17,11 @@ img {
   width: 270px;
   height: 100%;
 }
+
+/* ドロワーが開かれたときのスタイル */
+.show {
+  transform: translate3d(-270px, 0, 0);
+}
 .header {
   padding: 16px;
 }
