@@ -25,6 +25,11 @@ img {
 .header {
   padding: 16px;
 }
+
+/* 開く閉じるアニメーション */
+#wrapper, #nav {
+  transition: transform 0.3s;
+}
 header .container {
   display: flex;
   justify-content: space-between;
