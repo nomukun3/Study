@@ -9,3 +9,5 @@ $(document).ready(function() {
 });
 
 console.log('aaa');
+
+console.log('aaa');
