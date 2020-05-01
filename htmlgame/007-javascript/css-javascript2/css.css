@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+
+div {
+  color: green;
+  height:25px;
+  position: absolute;
+  top:50px;
+  width:60px;
+}
