@@ -2,17 +2,72 @@
 
 let ctx, x = 1100, y = 150 + 50, keyCode;
 
+let r = 0;
 
 let canvas = document.getElementById("main");
 let onpu = document.getElementById("onpu");
 
+let xxx = [];
+
+let yyy = [];
 
 
 ctx = canvas.getContext("2d");
 
 
 function init() {
-  setInterval(main, 100);
+
+
+  verticalline();
+  sedeline();
+
+  setInterval(main1, 300);
+  // setInterval(main2, 100);
+}
+
+
+function main1() {
+  ctx.drawImage(onpu, x, xxx[r] * 20 + 100);
+  r += 1;
+}
+
+
+function main2() {
+  if (x >= 0) {
+    write();
+    key();
+  }else{
+    clear();
+  }
+}
+
+
+for (let i = 1; i < 6; ++i) {
+  xxx.push(Math.round( Math.random() * i));
+}
+
+console.log(xxx[2]);
+
+
+
+
+function clear() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  verticalline();
+  sedeline();
+}
+
+
+
+function write() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    x=x-10;
+    verticalline();
+    sedeline();
+    ctx.drawImage(onpu, x, xxx[2] * 20 + 100);
+    // ctx.drawImage(onpu, x, xxx[r] * 20 + 100);
+    // r += 1;
+
 }
 
 
@@ -30,73 +85,58 @@ document.onkeydown = function(event) {
 };
 
 
-function main() {
-  if (x >= 0) {
-    write();
-    key();
-  }else{
-    clear();
-  }
-}
-
-
-
-
 function key() {
   switch (keyCode) {
     case 65:
-      clear2();
+      clear();
         break;
     case 83:
-      clear2();
+      clear();
         break;
     case 68:
-      clear2();
+      clear();
         break;
     case 70:
-      clear2();
+      clear();
         break;
     case 71:
-      clear2();
+      clear();
         break;
     case 72:
-      clear2();
+      clear();
         break;
     case 74:
-      clear2();
+      clear();
         break;
     case 75:
-      clear2();
+      clear();
         break;
     case 76:
-      clear2();
+      clear();
         break;
   }
 }
 
 
 
-function clear() {
-  ctx.clearRect(x,y,canvas.width,canvas.height);
-  verticalline();
-  sedeline();
-}
 
 
-function clear2() {
-  if (x > 50 && x < 150) {
-    clear();
-  }
-}
 
 
-function write() {
-    ctx.clearRect(x, y, onpu.width, onpu.height);
-    x=x-10;
-    verticalline();
-    sedeline();
-    ctx.drawImage(onpu, x, y);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
