@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+body {
+  background-color: #555555;
+  color: #ffffff;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 300px;
+  margin: 0 auto;
+  width: 960px;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 31.5px;
+}
+
+.h1_explanation{
+  margin: 0 0 54px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.name {
+  font-size: 22px;
+}
+
+
+h1 {
+  border-bottom: 3px solid #cccccc;
+  margin: 0;
+}
+
+h2 {
+  border-bottom: 1px solid #cccccc;
+  margin: 0 0 30px;
+}
+
+section {
+  padding: 0 0 150px;
+  border-top: 18px solid #cccccc;
+}
+
+.myimage {
+  float: left;
+  padding-right: 80px;
+}
+
+nav {
+  background-color: #555555;
+  height: 40px;
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
+  width: 565px;/* liの横幅*4+liのborder */
+}
+
+.global-nav li {
+  background-color: #555555;
+  border-left:1px solid #999999;
+  border-right:1px solid #999999;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 140px;
+}
+
+.global-nav li+li {
+  border-left: none;
+}
+
+.global-nav li a{
+  color: #ffffff;
+  display: block;
+  height: 40px;
+  text-decoration: none;
+  width:140px;
+}
+
+.global-nav li a:hover{
+  background-color: #000000;
+  color: #ffffff;
+  display: block;
+  height: 40px;
+  text-decoration: none;
+  width:140px;
+}
+
+
+#page1 {
+  background-image: url(../image/tomusan.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#main {
+  margin: 0 10px 0;
+}
+
+.footer {
+  font-size: 6.75px;
+  margin: 10px auto 60px;
+  text-align: center;
+}
+
+#wrap {
+  background-color: #ffffff;
+  clear: both;
+  margin: 0 auto 0;
+  padding-top: 100px;
+}
+
+#content {
+  color: #000000;
+  margin: 0 auto 0;
+  width: 960px;
+}
