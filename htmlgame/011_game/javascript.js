@@ -1,6 +1,6 @@
 'use strict';
 
-var H = 10, W = 10, BOMB = 10, cell = [], opend = 0;
+var H = 10, W = 10, BOMB = 10, cell = [], opened = 0;
 
 function init() {
   var main = document.getElementById("main");
@@ -73,7 +73,7 @@ function open(x, y) {
 function flip(cell) {
   cell.className = "cell_open";
   cell.opened = true;
-  if (++opend >= (W*H-BOMB)) {
+  if (++opened >= (W*H-BOMB)) {
     document.getElementById("title").textContent="Good job!";
   }
 }
