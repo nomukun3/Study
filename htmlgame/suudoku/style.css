@@ -4,15 +4,19 @@
   color: red;
 }
 
-div{
+.start {
   background-color: #333333;
-  color:#ffffff;
+  color: #ffffff;
+}
+
+.saiten{
+  background-color: #333333;
+  color: #ffffff;
   height:30px;
   width:90px;
 }
 
 #other{
-  background-color: #000000;
   height:500px;
   width:500px;
 }

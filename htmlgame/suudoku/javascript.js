@@ -1,17 +1,25 @@
 'use strict';
 
-let W = 9, H = 9,open_cell = 60, cell = [], number=[];
+let W = 9, H = 9,open_cell = 60, cell = [], number=[], timestart;
 
 function init() {
   let start=document.createElement("div");
-  start.style.width=400+"px";
-  start.style.height=200+"px";
+  start.textContent="start";
+  start.id="start";
+  start.className="start";
+  start.addEventListener("click",start_click);
   document.getElementById("body").insertBefore(start, document.getElementById("body").firstChild);
-  numpure();
-  open();
-  kotaeawase();
 }
 
+
+function start_click() {
+  document.getElementById("start").remove();
+  numpure();
+  open();
+  timestart=new Date();
+  console.log(timestart);
+  kotaeawase();
+}
 function numpure() {
   loop: while (true) {
     make();
@@ -33,6 +41,8 @@ function numpure() {
 
 function kotaeawase() {
   let saiten=document.createElement("div");
+  saiten.id="saiten";
+  saiten.className="saiten";
   saiten.textContent="採点";
   let other=document.getElementById("other");
   other.appendChild(saiten);
@@ -53,14 +63,27 @@ function kennsyou() {
     console.log("you are win");
     let other=document.getElementById("other");
     let kekka = document.createElement("p");
-    kekka.textContent="You are win";
+    let now = new Date();
+    timer(kekka,now);
     other.appendChild(kekka);
+    document.getElementById("saiten").remove();
   }else{
     console.log("you are lose");
     let other=document.getElementById("other");
     let kekka = document.createElement("p");
     kekka.textContent="you are lose";
     other.appendChild(kekka);
+  }
+}
+
+function timer(kekka, now) {
+  let time = now.getTime()-timestart.getTime();
+  let sec = time/1000;
+  let min = Math.floor(sec/60);
+  if (min<=0) {
+    kekka.textContent="you are win  : "+sec%60+"秒";
+  }else{
+    kekka.textContent="you are win  : "+min+"分"+sec%60+"秒";
   }
 }
 
