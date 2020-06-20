@@ -7,6 +7,9 @@
 .start {
   background-color: #333333;
   color: #ffffff;
+  font-size: 50px;
+  height: 100px;
+  width: 200px;
 }
 
 .saiten{
