@@ -71,7 +71,7 @@ function kennsyou() {
     console.log("you are lose");
     let other=document.getElementById("other");
     let kekka = document.createElement("p");
-    kekka.textContent="you are lose";
+    kekka.textContent="多分間違えてます";
     other.appendChild(kekka);
   }
 }
