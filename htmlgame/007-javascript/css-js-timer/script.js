@@ -3,7 +3,7 @@
 var timerId;
 
 function timeoutStart() {
-  timerId = setTimeout(whatime, 3000);
+  timerId = setTimeout(whatime, 300);
 }
 
 function timeoutStop() {

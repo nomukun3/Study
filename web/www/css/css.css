@@ -11,7 +11,8 @@ body {
 header {
   height: 300px;
   margin: 0 auto;
-  width: 960px;
+  max-width: 960px;
+  width: 100%;
 }
 
 p,h1,h2,h3,h4,h5,h6 {
@@ -65,7 +66,7 @@ ul {
   margin: 0 auto;
   overflow: hidden;
   padding: 0;
-  width: 565px;/* liの横幅*4+liのborder */
+  max-width: 565px;/* liの横幅*4+liのborder */
 }
 
 .global-nav li {
@@ -91,7 +92,7 @@ ul {
   width:140px;
 }
 
-.global-nav li a:hover{
+.global-nav li a::hover{
   background-color: #000000;
   color: #ffffff;
   display: block;
@@ -128,5 +129,6 @@ ul {
 #content {
   color: #000000;
   margin: 0 auto 0;
-  width: 960px;
+  max-width: 960px;
+  width: 100%;
 }

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.kaitou {
+  color: red;
+}
+
+div{
+  background-color: #333333;
+  color:#ffffff;
+  height:30px;
+  width:90px;
+}
+
+#other{
+  background-color: #000000;
+  height:500px;
+  width:500px;
+}
+
+table {
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+
+td {
+  height: 30px;
+  width: 30px;
+}
+
+.cell {
+  background-color: white;
+}
+
