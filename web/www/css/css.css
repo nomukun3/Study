@@ -19,6 +19,20 @@ p,h1,h2,h3,h4,h5,h6 {
   margin-top: 0;
 }
 
+.logo {
+  height: 100px;
+  width: 200px;
+}
+
+.logo:hover {
+  opacity: 0.5;
+}
+
+.suudoku_img:hover {
+  opacity: 0.5;
+}
+
+
 p {
   line-height: 31.5px;
 }
@@ -92,7 +106,7 @@ ul {
   width:140px;
 }
 
-.global-nav li a::hover{
+.global-nav li a:hover{
   background-color: #000000;
   color: #ffffff;
   display: block;
@@ -131,4 +145,10 @@ ul {
   margin: 0 auto 0;
   max-width: 960px;
   width: 100%;
+}
+
+.illustration {
+  width: 500px;
+  height: 500px;
+  border: solid 1px #cccccc;
 }

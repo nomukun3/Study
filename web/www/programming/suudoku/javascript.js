@@ -1,8 +1,26 @@
 'use strict';
 
-let W = 9, H = 9,open_cell = 60, cell = [], number=[];
+let W = 9, H = 9,open_cell = 60, cell = [], number=[], timestart;
 
 function init() {
+  let start=document.createElement("div");
+  start.textContent="start";
+  start.id="start";
+  start.className="start";
+  start.addEventListener("click",start_click);
+  document.getElementById("body").insertBefore(start, document.getElementById("body").firstChild);
+}
+
+
+function start_click() {
+  document.getElementById("start").remove();
+  numpure();
+  open();
+  timestart=new Date();
+  console.log(timestart);
+  kotaeawase();
+}
+function numpure() {
   loop: while (true) {
     make();
     for (let j = 0; j < H; ++j) {
@@ -16,18 +34,25 @@ function init() {
         }
       }
     }
+    // document.getElementById("other").textContent=new Date();
     break loop;
   }
-  open();
-  kotaeawase();
 }
 
+
+
+
+
+
+
 function kotaeawase() {
-  let sousin=document.createElement("div");
-  sousin.textContent="採点";
+  let saiten=document.createElement("div");
+  saiten.id="saiten";
+  saiten.className="saiten";
+  saiten.textContent="採点";
   let other=document.getElementById("other");
-  other.appendChild(sousin);
-  sousin.addEventListener("click", kennsyou);
+  other.appendChild(saiten);
+  saiten.addEventListener("click", kennsyou);
 }
 
 function kennsyou() {
@@ -44,14 +69,27 @@ function kennsyou() {
     console.log("you are win");
     let other=document.getElementById("other");
     let kekka = document.createElement("p");
-    kekka.textContent="You are win";
+    let now = new Date();
+    timer(kekka,now);
     other.appendChild(kekka);
+    document.getElementById("saiten").remove();
   }else{
     console.log("you are lose");
     let other=document.getElementById("other");
     let kekka = document.createElement("p");
-    kekka.textContent="you are lose";
+    kekka.textContent="多分間違えてます";
     other.appendChild(kekka);
+  }
+}
+
+function timer(kekka, now) {
+  let time = now.getTime()-timestart.getTime();
+  let sec = time/1000;
+  let min = Math.floor(sec/60);
+  if (min<=0) {
+    kekka.textContent="you are win  : "+sec%60+"秒";
+  }else{
+    kekka.textContent="you are win  : "+min+"分"+sec%60+"秒";
   }
 }
 
