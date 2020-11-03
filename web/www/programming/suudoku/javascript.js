@@ -1,6 +1,6 @@
 'use strict';
 
-let W = 9, H = 9,open_cell = 60, cell = [], number=[], timestart;
+let W = 9, H = 9,open_cell = 60, cell = [], number=[], timestart, sec;
 
 function init() {
   let start=document.createElement("div");
@@ -40,11 +40,6 @@ function numpure() {
 }
 
 
-
-
-
-
-
 function kotaeawase() {
   let saiten=document.createElement("div");
   saiten.id="saiten";
@@ -64,6 +59,9 @@ function kennsyou() {
       }
     }
   }
+  if (document.getElementById("miss")) {
+    document.getElementById("miss").remove();
+  }
   console.log(n);
   if (n<=0) {
     console.log("you are win");
@@ -73,25 +71,99 @@ function kennsyou() {
     timer(kekka,now);
     other.appendChild(kekka);
     document.getElementById("saiten").remove();
+
+    sousin();
   }else{
     console.log("you are lose");
     let other=document.getElementById("other");
     let kekka = document.createElement("p");
+    kekka.setAttribute("id","miss");
     kekka.textContent="多分間違えてます";
     other.appendChild(kekka);
   }
 }
+function sousin() {
+  let other = document.getElementById("other");
+  let username = document.createElement("p");
+  username.textContent="username : ";
+  username.setAttribute("id","username");
+  other.appendChild(username);
+  let input1=document.createElement("input");
+  input1.setAttribute("type","text");
+  input1.setAttribute("id","name");
+  input1.setAttribute("maxlength","10");
+  input1.setAttribute("value","noname");
+  other.appendChild(input1);
+
+  let input2=document.createElement("input");
+  input2.setAttribute("type","button");
+  input2.setAttribute("id","sendbutton");
+  input2.setAttribute("value","送信");
+  input2.setAttribute("onclick","inputtosend()");
+  other.appendChild(input2);
+}
 
 function timer(kekka, now) {
   let time = now.getTime()-timestart.getTime();
-  let sec = time/1000;
+  let sec2 = time/1000;
+  sec =(Math.round(sec2*100)/100);
   let min = Math.floor(sec/60);
+
   if (min<=0) {
-    kekka.textContent="you are win  : "+sec%60+"秒";
+    kekka.textContent="your score  : "+(sec%60).toFixed(2)+"秒";
   }else{
-    kekka.textContent="you are win  : "+min+"分"+sec%60+"秒";
+    kekka.textContent="you score  : "+min+"分"+(sec%60).toFixed(2)+"秒";
   }
 }
+
+function inputtosend() {
+  let input1=document.getElementById("name");
+  let other = document.getElementById("other");
+  let input2=other.appendChild(input1);
+  // console.log(input2.value);
+  postsend(sec,input2.value);
+
+  document.getElementById("username").remove();
+  document.getElementById("sendbutton").remove();
+  document.getElementById("name").remove();
+}
+
+function postsend(sec,name) {
+  let aaaa;
+  let fd = new FormData();
+  fd.append('score',sec);
+  fd.append('name',name);
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST','rank.php');
+  xhr.send(fd);
+  xhr.onreadystatechange=function () {
+    if ((xhr.readyState == 4) && (xhr.status == 200)) {
+      aaaa = JSON.parse(xhr.responseText);
+
+      let other = document.getElementById("other");
+      let username2 = document.createElement("p");
+      username2.textContent="↓最速ランキング上位5人:";
+      other.appendChild(username2);
+      for (let i = 0; i < 5; ++i) {
+        let username = document.createElement("p");
+        username.textContent=aaaa[i][0]+":"+aaaa[i][1];
+        console.log(aaaa[i][0]+":,:"+aaaa[i][1]);
+        other.appendChild(username);
+      }
+      // other.appendChild(username);
+  sec =(Math.round(sec2*100)/100);
+  let min = Math.floor(sec/60);
+
+  if (min<=0) {
+    kekka.textContent="your score  : "+(sec%60).toFixed(2)+"秒";
+  }else{
+    kekka.textContent="you score  : "+min+"分"+(sec%60).toFixed(2)+"秒";
+  }
+    }
+  };
+}
+
+
 
 function open() {
   for (let i = 0; i < open_cell; ++i) {
