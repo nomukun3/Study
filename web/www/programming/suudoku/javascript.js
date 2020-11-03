@@ -148,17 +148,28 @@ function postsend(sec,name) {
         let username = document.createElement("p");
         username.textContent=aaaa[i][0]+":"+aaaa[i][1];
         console.log(aaaa[i][0]+":,:"+aaaa[i][1]);
+
+
+        let sec =Math.round(aaaa[i][1]*100)/100;
+        let min = Math.floor(sec/60);
+
+        if (min<=0) {
+          username.textContent=aaaa[i][0]+":"+(sec%60).toFixed(2)+"秒";
+        }else{
+          username.textContent=aaaa[i][0]+":"+min+"分"+(sec%60).toFixed(2)+"秒";
+        }
+
+
+
+
+
+
+
+
+
         other.appendChild(username);
       }
       // other.appendChild(username);
-  sec =(Math.round(sec2*100)/100);
-  let min = Math.floor(sec/60);
-
-  if (min<=0) {
-    kekka.textContent="your score  : "+(sec%60).toFixed(2)+"秒";
-  }else{
-    kekka.textContent="you score  : "+min+"分"+(sec%60).toFixed(2)+"秒";
-  }
     }
   };
 }

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+article {
+  padding-bottom: 1em;
+}
+div .text {
+  padding-left: 2em;
+}
+strong .error {
+  color: red;
+}
+span .name {
+  color: green;
+}
